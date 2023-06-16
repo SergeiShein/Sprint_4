@@ -34,85 +34,57 @@ public class QuestionsAboutImportant {
     private By arrowEight = By.xpath(".//div[@class = \"accordion\"]/div[8]");
     private By eighthArrowText = By.xpath(".//div[@class = \"accordion\"]/div[8]/div[last()]/p");
 
+    public void clickArrow(int arrowNumber){
+        if (arrowNumber == 1){
+            driver.findElement(arrowOne).click();
+        } else if (arrowNumber == 2) {
+            driver.findElement(arrowTwo).click();
+        } else if (arrowNumber == 3) {
+            driver.findElement(arrowThree).click();
+        } else if (arrowNumber == 4) {
+            driver.findElement(arrowFour).click();
+        } else if (arrowNumber == 5){
+            driver.findElement(arrowFive).click();
+        } else if (arrowNumber == 6) {
+            driver.findElement(arrowSix).click();
+        } else if (arrowNumber == 7) {
+            driver.findElement(arrowSeven).click();
+        } else if (arrowNumber == 8) {
+            driver.findElement(arrowEight).click();
+        }
+    }
+    public String getArrowText(int arrowTextNumber){
+        if (arrowTextNumber == 1){
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(firstArrowText, 0)).get(0).getText();
+        } else if (arrowTextNumber == 2){
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(secondArrowText, 0)).get(0).getText();
+        } else if (arrowTextNumber == 3) {
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(thirdArrowText, 0)).get(0).getText();
+        } else if (arrowTextNumber == 4) {
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(fourthArrowText, 0)).get(0).getText();//возвращаем текст
+        } else if (arrowTextNumber == 5) {
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(fifthArrowText, 0)).get(0).getText();//возвращаем текст
+        } else if (arrowTextNumber == 6) {
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(sixthArrowText, 0)).get(0).getText();//возвращаем текст
+        } else if (arrowTextNumber == 7) {
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(seventhArrowText, 0)).get(0).getText();//возвращаем текст
+        } else if (arrowTextNumber == 8) {
+            return new WebDriverWait(driver, 5)
+                    .until(ExpectedConditions.numberOfElementsToBeMoreThan(eighthArrowText, 0)).get(0).getText();//возвращаем текст
+        }
+        return "";
+    }
     public void scrollToList() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(list));
     }
-
     public void clickCookie() {
         driver.findElement(cookie).click();//кликаем, чтобы принять куки
     }
-
-    public void clickArrowOne() {
-        driver.findElement(arrowOne).click();//кликаем по первой стрелке для раскрытия
-    }
-
-    public String getFirstArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(firstArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowTwo() {
-        driver.findElement(arrowTwo).click();//кликаем по второй стрелке для раскрытия
-    }
-
-    public String getSecondArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(secondArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowThree() {
-        driver.findElement(arrowThree).click();//кликаем по третьей стрелке для раскрытия
-    }
-
-    public String getThirdArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(thirdArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowFour() {
-        driver.findElement(arrowFour).click();//кликаем по четвертой стрелке для раскрытия
-    }
-
-    public String getFourthArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(fourthArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowFive() {
-        driver.findElement(arrowFive).click();//кликаем по пятой стрелке для раскрытия
-    }
-
-    public String getFifthArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(fifthArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowSix() {
-        driver.findElement(arrowSix).click();//кликаем по шестой стрелке для раскрытия
-    }
-
-    public String getSixthArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(sixthArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowSeven() {
-        driver.findElement(arrowSeven).click();//кликаем по седьмой стрелке для раскрытия
-    }
-
-    public String getSeventhArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(seventhArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-    public void clickArrowEight() {
-        driver.findElement(arrowEight).click();//кликаем по восьмой стрелке для раскрытия
-    }
-
-    public String getEighthArrowText() {
-        return new WebDriverWait(driver, 5)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(eighthArrowText, 0)).get(0).getText();//возвращаем текст
-    }
-
-
 }
